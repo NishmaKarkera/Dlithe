@@ -1,0 +1,38 @@
+LED and Buzzer program:
+void setup() {
+  pinMode(42,OUTPUT);
+  pinMode(6,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  digitalWrite(42,HIGH);
+  digitalWrite(6,HIGH);
+  Serial.println("LED IS ON");
+  delay(1000);
+  digitalWrite(42,LOW);
+  digitalWrite(6,LOW);
+  Serial.println("LED IS OFF");
+  delay(2000);
+
+}
+RELAY ,LED AND BUZZER:
+void setup() {
+  pinMode(42,OUTPUT);
+  pinMode(6,OUTPUT);
+  pinMode(5,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  digitalWrite(42,HIGH);
+  digitalWrite(6,LOW);
+  digitalWrite(5,LOW);
+  Serial.println("LED IS ON");
+  delay(1000);
+  digitalWrite(42,LOW);
+  digitalWrite(6,HIGH);
+  digitalWrite(6,HIGH);
+  Serial.println("LED IS OFF");
+  delay(2000);
+}
