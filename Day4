@@ -1,0 +1,120 @@
+IR sensor:
+int ir=12;
+void setup() {
+pinMode(ir,INPUT);
+Serial.begin(9600);
+}
+void loop() {
+ int v=digitalRead(ir);
+ if(v==HIGH){
+  Serial.println("Object is detected");
+ }
+else
+Serial.println("Object is not detected");
+}
+
+IR with LED:
+
+int ir=12;
+int led=42;
+void setup() {
+pinMode(ir,INPUT);
+pinMode(led,OUTPUT);
+Serial.begin(9600);
+}
+void loop() {
+ int v=digitalRead(ir);
+ if(v==HIGH){
+  Serial.println("Object is detected");
+  digitalWrite(led,HIGH);
+ }
+else
+Serial.println("Object is not detected");
+digitalWrite(led,LOW);
+}
+
+OBject detection with LED and buzzer:
+
+int ir=12;
+int led=42;
+void setup() {
+pinMode(ir,INPUT);
+pinMode(led,OUTPUT);
+pinMode(6,OUTPUT);
+Serial.begin(9600);
+}
+void loop() {
+ int v=digitalRead(ir);
+ if(v==HIGH){
+  Serial.println("Object is detected");
+  digitalWrite(led,HIGH);
+ }
+else
+Serial.println("Object is not detected");
+digitalWrite(6,HIGH);
+}
+Sound sensor:
+int ss=A0;
+void setup() {
+  pinMode(ss,INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int v=analogRead(ss);
+  Serial.println(v);
+  delay(1000);
+}
+Sound sensor with LED:
+int ss=A0;
+void setup() {
+  pinMode(ss,INPUT);
+  pinMode(42,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int v=analogRead(ss);
+  if(v>=500){
+    digitalWrite(42,HIGH);
+  }
+  else
+  digitalWrite(42,LOW);
+  Serial.println(v);
+  delay(1000);
+}
+Touch sensor:
+int touch=4;
+void setup() {
+ pinMode(touch,INPUT);
+ Serial.begin(9600);
+
+}
+
+void loop() {
+ int touchvalue=digitalRead(touch);
+ if(touchvalue==HIGH){
+ Serial.println("Touch detected");
+ }
+ else
+ Serial.println("Touch not detected");
+ delay(1000);
+}
+Soil Moisture:
+int soil=A0;
+void setup() {
+  pinMode(soil,INPUT);
+  pinMode(6,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int soilvalue=analogRead(soil);
+  Serial.println(soilvalue);
+  if(soilvalue<=500){
+    digitalWrite(6,HIGH);
+  }
+  else
+  digitalWrite(6,LOW);
+  delay(1000);
+}
