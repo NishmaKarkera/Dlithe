@@ -1,0 +1,91 @@
+Flame sensor:
+int flame=7;
+void setup() {
+ pinMode(flame,INPUT);
+ pinMode(35,OUTPUT);
+ Serial.begin(9600);
+}
+
+void loop() {
+  int flamevalue=digitalRead(flame);
+  if(flame==HIGH)
+  {
+    Serial.println("Flame is detected");
+    digitalWrite(35,HIGH);
+    delay(1000);
+  }
+  else
+  Serial.println("Flame is not detected");
+digitalWrite(35,LOW);
+}
+anothher way:
+int flame=A0;
+int buzz=35;
+void setup() {
+ pinMode(flame,INPUT);
+ pinMode(buzz,OUTPUT);
+ Serial.begin(9600);
+}
+
+void loop() {
+  int flamevalue=analogRead(flame);
+  if(flame==HIGH)
+  {
+    Serial.println(flamevalue);
+    Serial.println("Flame is detected");
+    digitalWrite(buzz,HIGH);
+    delay(1000);
+  }
+  else
+  Serial.println("Flame is not detected");
+digitalWrite(buzz,LOW);
+}
+GAS_SENSOR:
+int gas=A0;
+int led=13;
+void setup() {
+ pinMode(gas,INPUT);
+ pinMode(led,OUTPUT);
+ Serial.begin(9600);
+}
+
+void loop() {
+  int gasvalue=analogRead(gas);
+  if(gas==HIGH)
+  {
+    Serial.println("gas is detected");
+    digitalWrite(led,HIGH);
+  }
+  else
+  {
+  Serial.println("gas is not detected");
+  digitalWrite(led,LOW);
+  }
+    delay(1000);
+}
+TILT_SENSOR:
+int TILT_SENSOR=2; 
+int LED=7;         
+
+void setup() {
+    pinMode(TILT_SENSOR, INPUT);
+    pinMode(LED, OUTPUT);
+    Serial.begin(9600);
+}
+
+void loop() {
+    int tiltState = digitalRead(TILT_SENSOR); 
+    
+    if (tiltState == HIGH) {
+        digitalWrite(LED, HIGH); 
+        Serial.println("Tilt Detected");
+    } 
+    else
+     {
+        digitalWrite(LED, LOW);  
+        Serial.println("No Tilt");
+    }
+
+    delay(200); 
+}
+
